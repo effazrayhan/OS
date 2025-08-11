@@ -1,0 +1,8 @@
+id,text,predicted_sentiment
+sample_799,Rate deri kore ghumiyechi 👎,negative
+sample_825,Bagane phul phuteche onek sundor ,positive
+sample_226,Database এ error দেখাচ্ছে,negative
+sample_9,Sondhyay parke halte jabo,neutral
+sample_16,রান্নাঘরে মা কাজ করছেন 🤦‍♂️,negative
+sample_642,Budget এর মধ্যে project complete করতে হবে,neutral
+sample_614,সন্ধ্যায় park এ walking যাবো,neutral

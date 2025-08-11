@@ -1,0 +1,55 @@
+Readers-Writers Problem (Semaphore-based) Algorithm
+Initialization:
+
+    readers_count = 0
+
+    mutex = 1 (binary semaphore to protect readers_count)
+
+    rw_mutex = 1 (binary semaphore to protect access to the shared resource)
+
+Reader Process (Reader i):
+
+    Entry Section (Acquire access to modify readers_count):
+
+        wait(mutex)
+
+        Increment readers_count by 1
+
+        If readers_count == 1 (i.e., this is the first reader), then:
+
+            wait(rw_mutex)
+            (lock the resource for writing, so writers can't access while readers read)
+
+        signal(mutex)
+
+    Critical Section (Perform reading)
+
+        Read the shared resource (simulate by sleep and print)
+
+    Exit Section (Update readers_count and release resource if last reader)
+
+        wait(mutex)
+
+        Decrement readers_count by 1
+
+        If readers_count == 0 (last reader finished), then:
+
+            signal(rw_mutex)
+            (release resource so writers can write)
+
+        signal(mutex)
+
+Writer Process (Writer i):
+
+    Entry Section (Acquire exclusive access to resource):
+
+        wait(rw_mutex)
+        (wait until no readers or writers are accessing the resource)
+
+    Critical Section (Perform writing)
+
+        Write to the shared resource (simulate by sleep and print)
+
+    Exit Section (Release exclusive access):
+
+        signal(rw_mutex)
